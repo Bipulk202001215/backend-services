@@ -49,6 +49,12 @@ public class ClinicService {
         return mapToResponse(savedClinic);
     }
 
+    public ClinicResponse getClinicByUserId(String userId) {
+        Clinic clinic = clinicRepository.findByUserId(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Clinic not found for user"));
+        return mapToResponse(clinic);
+    }
+
     private ClinicResponse mapToResponse(Clinic clinic) {
         return new ClinicResponse(
                 clinic.getClinicId(),

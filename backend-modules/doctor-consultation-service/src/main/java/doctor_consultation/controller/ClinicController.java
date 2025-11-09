@@ -6,6 +6,7 @@ import doctor_consultation.response.ClinicResponse;
 import doctor_consultation.services.ClinicService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -36,6 +37,12 @@ public class ClinicController {
     public ResponseEntity<ClinicResponse> updateClinic(@PathVariable String clinicId,
                                                        @Valid @RequestBody UpdateClinicRequest request) {
         ClinicResponse response = clinicService.updateClinic(clinicId, request);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/userId/{userId}")
+    public ResponseEntity<ClinicResponse> updateClinic(@PathVariable String userId) {
+        ClinicResponse response = clinicService.getClinicByUserId(userId);
         return ResponseEntity.ok(response);
     }
 }
