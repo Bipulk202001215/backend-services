@@ -8,6 +8,7 @@
         <groupId>com.example</groupId>
         <artifactId>backend-modules</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>doctor-consultation-services</artifactId>
