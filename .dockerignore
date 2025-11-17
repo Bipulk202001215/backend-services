@@ -1,0 +1,48 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# IDE files
+.idea
+.vscode
+*.iml
+*.swp
+*.swo
+*~
+
+# Maven
+**/target/
+.mvn/
+mvnw
+mvnw.cmd
+
+# Documentation
+README.md
+HELP.md
+*.md
+
+# Test files
+**/src/test/
+
+# Build artifacts
+**/*.jar
+**/*.war
+**/*.ear
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files (don't copy Dockerfile into itself)
+Dockerfile
+.dockerignore
+
+# Environment files
+.env
+.env.local
+
