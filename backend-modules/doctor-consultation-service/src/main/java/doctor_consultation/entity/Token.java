@@ -30,14 +30,23 @@ public class Token {
     @Field(name = "number")
     private String number;
 
-    @Field(name = "company_id")
-    private String companyId;
+    @Field(name = "clinic_id")
+    private String clinicId;
 
     @Field(name = "status")
-    private String status;
+    private TokenStatus status;
 
     @Field(name = "token_number")
     private Integer tokenNumber;
+
+    @Field(name = "month")
+    private Integer month;
+
+    @Field(name = "year")
+    private Integer year;
+
+    @Field(name = "day")
+    private Integer day;
 
     @Field(name = "transcript")
     private String transcript;
@@ -97,19 +106,19 @@ public class Token {
         this.number = number;
     }
 
-    public String getCompanyId() {
-        return companyId;
+    public String getClinicId() {
+        return clinicId;
     }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
+    public void setClinicId(String clinicId) {
+        this.clinicId = clinicId;
     }
 
-    public String getStatus() {
+    public TokenStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TokenStatus status) {
         this.status = status;
     }
 
@@ -119,6 +128,30 @@ public class Token {
 
     public void setTokenNumber(Integer tokenNumber) {
         this.tokenNumber = tokenNumber;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
     }
 
     public String getTranscript() {

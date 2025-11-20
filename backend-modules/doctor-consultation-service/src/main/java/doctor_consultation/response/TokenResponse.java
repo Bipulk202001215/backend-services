@@ -1,5 +1,6 @@
 package doctor_consultation.response;
 
+import doctor_consultation.entity.TokenStatus;
 import java.time.Instant;
 
 public record TokenResponse(
@@ -7,9 +8,9 @@ public record TokenResponse(
         String name,
         Integer age,
         String number,
-        String companyId,
+        String clinicId,
         Integer tokenNumber,
-        String status,
+        TokenStatus status,
         String transcript,
         String summaryData,
         Instant createdAt,

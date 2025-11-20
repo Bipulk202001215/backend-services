@@ -11,12 +11,8 @@ public record CreateTokenRequest(
         Integer age,
         @NotBlank(message = "Number is required")
         String number,
-        @NotBlank(message = "Company ID is required")
-        String companyId,
-        @NotNull(message = "Token number is required")
-        Integer tokenNumber,
-        @NotBlank(message = "Status is required")
-        String status,
+        @NotBlank(message = "Clinic ID is required")
+        String clinicId,
         String transcript,
         String summaryData
 ) {
