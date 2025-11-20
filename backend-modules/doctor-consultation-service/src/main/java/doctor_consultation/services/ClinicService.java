@@ -50,7 +50,8 @@ public class ClinicService {
     }
 
     public ClinicResponse getClinicByUserId(String userId) {
-        Clinic clinic = clinicRepository.findByUserId(userId)
+        // Get the most recent clinic for the user (in case there are multiple)
+        Clinic clinic = clinicRepository.findFirstByUserIdOrderByCreatedAtDesc(userId)
                 .orElseThrow(() -> new IllegalArgumentException("Clinic not found for user"));
         return mapToResponse(clinic);
     }

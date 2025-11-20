@@ -41,7 +41,7 @@ public class ClinicController {
     }
 
     @GetMapping("/userId/{userId}")
-    public ResponseEntity<ClinicResponse> updateClinic(@PathVariable String userId) {
+    public ResponseEntity<ClinicResponse> getClinicByUserId(@PathVariable String userId) {
         ClinicResponse response = clinicService.getClinicByUserId(userId);
         return ResponseEntity.ok(response);
     }
