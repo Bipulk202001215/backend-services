@@ -10,5 +10,7 @@ public interface TokenRepository extends MongoRepository<Token, String> {
     
     @Query(value = "{ 'clinic_id': ?0, 'year': ?1, 'month': ?2, 'day': ?3 }", sort = "{ 'token_number': -1 }")
     List<Token> findTop1ByClinicIdAndYearAndMonthAndDayOrderByTokenNumberDesc(String clinicId, Integer year, Integer month, Integer day);
+    
+    List<Token> findByClinicId(String clinicId);
 }
 

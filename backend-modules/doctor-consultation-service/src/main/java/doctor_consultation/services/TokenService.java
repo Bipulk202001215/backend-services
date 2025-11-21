@@ -58,6 +58,13 @@ public class TokenService {
         return tokens.get(0).getTokenNumber() + 1;
     }
 
+    public List<TokenResponse> getTokensByClinicId(String clinicId) {
+        List<Token> tokens = tokenRepository.findByClinicId(clinicId);
+        return tokens.stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+
     private TokenResponse mapToResponse(Token token) {
         return new TokenResponse(
                 token.getTokenId(),
