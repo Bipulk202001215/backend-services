@@ -1,6 +1,7 @@
 package doctor_consultation.services;
 
 import doctor_consultation.entity.Token;
+import doctor_consultation.entity.TokenStatus;
 import doctor_consultation.repository.TokenRepository;
 import doctor_consultation.request.CreateTokenRequest;
 import doctor_consultation.response.TokenResponse;
@@ -40,6 +41,7 @@ public class TokenService {
         token.setTokenNumber(nextTokenNumber);
         token.setTranscript(request.transcript());
         token.setSummaryData(request.summaryData());
+        token.setStatus(TokenStatus.INPROGRESS);
 
         Instant now = Instant.now();
         token.setCreatedAt(now);
