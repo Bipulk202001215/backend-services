@@ -12,5 +12,7 @@ public interface TokenRepository extends MongoRepository<Token, String> {
     List<Token> findTop1ByClinicIdAndYearAndMonthAndDayOrderByTokenNumberDesc(String clinicId, Integer year, Integer month, Integer day);
     
     List<Token> findByClinicId(String clinicId);
+    
+    List<Token> findByClinicIdAndYearAndMonthAndDay(String clinicId, Integer year, Integer month, Integer day);
 }
 

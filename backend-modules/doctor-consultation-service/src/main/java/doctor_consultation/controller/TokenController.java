@@ -1,6 +1,7 @@
 package doctor_consultation.controller;
 
 import doctor_consultation.request.CreateTokenRequest;
+import doctor_consultation.request.TokenSearchRequest;
 import doctor_consultation.response.TokenResponse;
 import doctor_consultation.services.TokenService;
 import jakarta.validation.Valid;
@@ -36,6 +37,13 @@ public class TokenController {
     @GetMapping("/clinic/{clinicId}")
     public ResponseEntity<List<TokenResponse>> getTokensByClinicId(@PathVariable String clinicId) {
         List<TokenResponse> tokens = tokenService.getTokensByClinicId(clinicId);
+        return ResponseEntity.ok(tokens);
+    }
+
+    @PostMapping("/search")
+    public ResponseEntity<List<TokenResponse>> getTokensByClinicIdAndDate(
+            @Valid @RequestBody TokenSearchRequest request) {
+        List<TokenResponse> tokens = tokenService.getTokensByClinicIdAndDate(request);
         return ResponseEntity.ok(tokens);
     }
 }

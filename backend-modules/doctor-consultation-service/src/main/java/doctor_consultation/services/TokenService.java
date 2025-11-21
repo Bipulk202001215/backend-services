@@ -4,6 +4,7 @@ import doctor_consultation.entity.Token;
 import doctor_consultation.entity.TokenStatus;
 import doctor_consultation.repository.TokenRepository;
 import doctor_consultation.request.CreateTokenRequest;
+import doctor_consultation.request.TokenSearchRequest;
 import doctor_consultation.response.TokenResponse;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +63,18 @@ public class TokenService {
 
     public List<TokenResponse> getTokensByClinicId(String clinicId) {
         List<Token> tokens = tokenRepository.findByClinicId(clinicId);
+        return tokens.stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+
+    public List<TokenResponse> getTokensByClinicIdAndDate(TokenSearchRequest request) {
+        List<Token> tokens = tokenRepository.findByClinicIdAndYearAndMonthAndDay(
+                request.clinicId(), 
+                request.year(), 
+                request.month(), 
+                request.day()
+        );
         return tokens.stream()
                 .map(this::mapToResponse)
                 .toList();
